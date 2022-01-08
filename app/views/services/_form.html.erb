@@ -1,0 +1,23 @@
+
+<%= simple_form_for(@service) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class="mb-2">
+      <%= f.input :name, placeholder: "Service name" %>
+    </div>
+    <div class="mb-2">
+      <%= f.input :description, as: :trix_editor, placeholder: "Description" %>
+    </div>
+    <div class="mb-2">
+      <%= f.input :capacity, placeholder: "Service capacity" %>
+    </div>
+    <%= f.association :user, as: :hidden  %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save", :class=>"btn btn-primary" %>
+    <%= link_to "Back", services_path, :class=>"btn btn-dark" %>
+  </div>
+<% end %>

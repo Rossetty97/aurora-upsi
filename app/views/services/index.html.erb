@@ -1,0 +1,47 @@
+<%= render "shared/nav_admin" %>
+
+<div class="container-fluid mt-5">
+  <div class="row justify-content-center mt-3">
+    <div class="col-lg-12">
+      <p class="h6">List of Services</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>QR Code</th>
+            <th>Service Name</th>
+            <th>Capacity</th>
+            <th>Current usage</th>
+            <th colspan="3">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @services.each do |service| %>
+            <tr>
+              <td><%= image_tag(service.qr_code) if service.qr_code.attached? %></td>
+              <td><%= service.name %></td>
+              <td><%= service.capacity %></td>
+              <td><%= service.current_usage %></td>
+              <td>
+                <%= link_to service, :class=>"btn btn-primary" do %>
+                  Show
+                <% end %>
+                <%= link_to edit_service_path(service), :class=>"btn btn-info" do %>
+                  Edit
+                <% end %>
+                <%= link_to service, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger" do %>
+                  Remove
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <%= link_to 'Add New Service', new_service_path, :class=>"btn btn-primary" %>
+  <%= link_to 'Back', root_path, :class=>"btn btn-dark" %>
+</div>

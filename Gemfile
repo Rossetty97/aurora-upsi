@@ -27,3 +27,7 @@ gem 'jquery-rails', '~> 4.4'
 gem 'simple_form', '~> 5.1'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem "letter_opener", group: :development
+gem 'rqrcode', '~> 2.1'
+gem 'chunky_png', '~> 1.4'
+gem 'barby', '~> 0.6.8'
+gem 'trix-rails', require: 'trix'
