@@ -1,12 +1,14 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
 
   def index
     @services = Service.all
   end
 
   def show
+    #@tap = Tap.new
+    #@taps = @service.taps.order('created_at DESC')
   end
 
   def new

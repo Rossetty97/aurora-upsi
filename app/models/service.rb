@@ -6,6 +6,15 @@ class Service < ApplicationRecord
   after_create :generate_qr
   
   belongs_to :user
+  has_many :taps, dependent: :destroy
+
+  after_create :current_usage
+
+  def current_usage
+    current_usage = taps.sum { |tap| tap.usage }
+    update_column(:current_usage, current_usage)
+    current_usage
+  end
 
   validates_presence_of :name
   validates_presence_of :description

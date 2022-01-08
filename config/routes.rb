@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :services
+  resources :services do 
+    resources :taps
+  end
   devise_for :users
 
   devise_scope :user do

@@ -8,11 +8,11 @@
         <div class="card-body">
           <small class="text-muted">
             Service created at <%= @service.created_at.strftime("%B, %d, %Y")%><br>
-            Service Capacity: <%= @service.capacity %> hours<br>
-            Current Usage: <%= @service.current_usage %> hours<br>
+            Service Capacity: <%= @service.capacity %> Minutes<br>
+            Current Usage: <%= @service.current_usage %> Minutes<br>
 
             <div class="text-center">
-              <%= image_tag(@service.qr_code) if @service.qr_code.attached? %>
+              <%= image_tag(@service.qr_code, :size=>"200x200") if @service.qr_code.attached? %>
             </div>
             <div>
               <p class="lead"><%= sanitize @service.description %></p>
@@ -20,12 +20,16 @@
           </small>
         </div>
       </div>
-      <div class="mt-2">
-        <%= link_to "Back", services_path, :class=>"btn btn-primary"%>
-        <%= link_to "Edit", edit_service_path, :class=>"btn btn-warning"%>
-        <%= link_to "Add New", new_service_path, :class=>"btn btn-info"%>
-        <%= link_to "Delete", service_path, method: :delete, data:{confirm: "Are you sure?"}, :class=>"btn btn-danger"%>
-      </div>
+      <% if current_user && current_user.role=="Admin" %>
+        <div class="mt-2">
+          <%= link_to "Back", services_path, :class=>"btn btn-primary"%>
+          <%= link_to "Edit", edit_service_path, :class=>"btn btn-warning"%>
+          <%= link_to "Add New", new_service_path, :class=>"btn btn-info"%>
+          <%= link_to "Delete", service_path, method: :delete, data:{confirm: "Are you sure?"}, :class=>"btn btn-danger"%>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
+
+<%= render "taps/form" %>
