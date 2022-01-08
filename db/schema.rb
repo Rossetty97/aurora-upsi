@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_08_074703) do
+ActiveRecord::Schema.define(version: 2022_01_08_101152) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,33 @@ ActiveRecord::Schema.define(version: 2022_01_08_074703) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "rams", force: :cascade do |t|
+    t.string "ministry_group"
+    t.datetime "time_and_date"
+    t.string "location"
+    t.string "leaders_name"
+    t.string "activity"
+    t.string "num_of_leaders"
+    t.text "risks_description"
+    t.text "casual_factors_people"
+    t.string "casual_factors_equipment"
+    t.text "casual_factors_environment"
+    t.text "risk_management_emergency"
+    t.text "relevant_industry_standards_applicable"
+    t.text "skills_required_by_staff"
+    t.string "form_completed_by"
+    t.boolean "yes"
+    t.boolean "no"
+    t.string "approved_by"
+    t.string "position_in"
+    t.date "submision_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "risk_management_normal_operations_people"
+    t.text "risk_management_normal_operations_equipment"
+    t.text "risk_management_normal_operations_environment"
   end
 
   create_table "services", force: :cascade do |t|

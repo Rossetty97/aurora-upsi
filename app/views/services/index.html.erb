@@ -1,9 +1,13 @@
-<%= render "shared/nav_admin" %>
+<% if current_user && current_user.role=="Admin" %>
+  <%= render "shared/nav_admin" %>
+<% else %>
+  <%= render "shared/nav_public" %>
+<% end %>
 
 <div class="container-fluid mt-5">
-  <div class="row justify-content-center mt-3">
+  <div class="row justify-content-center mt-5">
     <div class="col-lg-12">
-      <p class="h6">List of Services</h1>
+      <p class="h6 mt-4">List of Services</h1>
       <table class="table">
         <thead>
           <tr>
@@ -24,13 +28,13 @@
               <td><%= service.current_usage %></td>
               <td>
                 <%= link_to service, :class=>"btn btn-primary" do %>
-                  Show
+                  <i class="far fa-eye me-1"></i>Show
                 <% end %>
                 <%= link_to edit_service_path(service), :class=>"btn btn-info" do %>
-                  Edit
+                  <i class="far fa-edit me-1"></i>Edit
                 <% end %>
                 <%= link_to service, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger" do %>
-                  Remove
+                  <i class="far fa-trash-alt me-1"></i>Remove
                 <% end %>
               </td>
             </tr>
@@ -42,6 +46,11 @@
 </div>
 
 <div class="container-fluid">
-  <%= link_to 'Add New Service', new_service_path, :class=>"btn btn-primary" %>
-  <%= link_to 'Back', root_path, :class=>"btn btn-dark" %>
+  <%= link_to new_service_path, :class=>"btn btn-primary" do %>
+    <i class="fas fa-arrow-circle-right"></i> Add New Service
+  <% end %>
+
+  <%= link_to root_path, :class=>"btn btn-dark" do %>
+    <i class="fas fa-arrow-circle-left"></i> Back
+  <% end %>
 </div>

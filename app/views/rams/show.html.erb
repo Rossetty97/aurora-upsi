@@ -1,0 +1,54 @@
+<div class="container-fluid pt-1">
+  <div class="row justify-content-center mt-2">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          RAM FORM
+        </div>
+        <div class="card-body">
+          <span>Ministry Group: <%= @ram.ministry_group %></span><br>
+          <span>Date / Time: <%= @ram.time_and_date.strftime("%B, %d, %Y, %I:%m %p") %></span><br>
+          <span>Location: <%= @ram.location %></span><br>
+          <span>Leaders Name: <%= @ram.leaders_name %></span><br>
+          <span>Activity: <%= @ram.activity %></span><br>
+          <span>Number of Leaders: <%= @ram.num_of_leaders %></span><br>
+
+          <p class="fw-bold my-2">Risk</p>
+          <span>Accident, injury, damage: <%= @ram.risks_description %><br>
+
+          <p class="fw-bold my-2">Casual Factors</p>
+          <span>Hazards, perils, dangers<br>
+          <span>People: <%= @ram.casual_factors_people %></span><br>
+          <span>Equipment: <%= @ram.casual_factors_equipment %></span><br>
+          <span>Environment: <%= @ram.casual_factors_environment %></span><br>
+
+          <p class="fw-bold my-2">Risk Management</p>
+          <span>Normal Operations<br>
+          <span>People: <%= @ram.risk_management_normal_operations_people %></span>
+          <span>Equipment: <%= @ram.risk_management_normal_operations_equipment %></span>
+          <span>Environment: <%= @ram.risk_management_normal_operations_environment %></span>
+          <span>Emergency: <%= @ram.risk_management_emergency %></span>
+
+          <p class="fw-bold my-2">Relevant industry standards applicable: <%= @ram.relevant_industry_standards_applicable %></p>
+          <p class="fw-bold my-2">Skills required by staff: <%= @ram.skills_required_by_staff %></p>
+
+          <hr class="my-2">
+          <p class="fw-bold my-2">Final Decision on Implementing activity </p>
+          <span>Form Completed by: <%= @ram.form_completed_by %></span><br>
+          <span>Choose one:
+            <% if @ram.yes? %>
+              Yes
+            <% end %>
+            <% if @ram.no? %>
+              No
+            <% end %>
+          </span><br>
+
+          <span>Approved by: <%= @ram.approved_by %></span><br>
+          <span>Position: <%= @ram.position_in %></span><br>
+          <span>Date: <%= @ram.submision_date %></span><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

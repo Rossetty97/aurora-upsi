@@ -1,0 +1,67 @@
+<% if current_user && current_user.role=="Admin" %>
+  <%= render "shared/nav_admin" %>
+<% else %>
+  <%= render "shared/nav_public" %>
+<% end %>
+
+<div class="container-fluid mt-5">
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-12">
+      <p class="h6 mt-4"><i class="far fa-file-alt me-1"></i>List of RAM Forms</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Location</th>
+              <th>Leaders name</th>
+              <th>Form completed by</th>
+              <th>Approved by</th>
+              <th colspan="3">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @rams.each do |ram| %>
+              <tr>
+                <td><%= ram.created_at.strftime("%B, %d, %Y") %></td>
+                <td><%= ram.location %></td>
+                <td><%= ram.leaders_name %></td>
+                <td><%= ram.form_completed_by %></td>
+                <td>
+                  <% if ram.approved_by? %>
+                    <%= ram.approved_by %></td>
+                  <% else %>
+                    -
+                  <% end %>
+                <td>
+                  <%= link_to ram, :class=>"btn btn-sm btn-primary" do %>
+                    <i class="far fa-eye"></i> View
+                  <% end %>
+                  <%= link_to edit_ram_path(ram), :class=>"btn btn-sm btn-info" do %>
+                    <i class="fas fa-pencil-alt"></i> Update
+                  <% end %>
+                  <%= link_to ram, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-sm btn-info" do  %>
+                    <i class="far fa-trash-alt"></i> Delete
+                  <% end %>
+
+                  <%= link_to ram_path(ram, format: 'pdf'), :class=>"btn btn-sm btn-primary", :target=>"_blank" do %>
+                    <i class="far fa-file-pdf"></i> Download PDF
+                  <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<br>
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-12">
+      <%= link_to new_ram_path, :class=>"btn btn-primary col-12" do %>
+        <i class="fas fa-plus-circle me-1"></i> Submit New Form
+      <% end %>
+    </div>
+  </div>
+</div>

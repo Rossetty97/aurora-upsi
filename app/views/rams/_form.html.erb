@@ -1,0 +1,95 @@
+
+<%= simple_form_for(@ram) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class="my-1">
+      <%= f.input :ministry_group, label: "Ministry / Group" %>
+    </div>
+    <div class="my-1">
+      <%= f.input :time_and_date, label: "Date and Time" %>
+    </div>
+    <div class="my-1">
+      <%= f.input :location, label: "Location" %>
+    </div>
+    <div class="my-1">
+      <%= f.input :leaders_name, label: "Leaders Name" %>
+    </div>
+    <div class="my-1">
+      <%= f.input :activity, label: "Activity" %>
+    </div>
+    <div class="my-1">
+      <%= f.input :num_of_leaders %>
+    </div>
+    <span class="badge bg-primary mt-2"><span class="fw-bold">Risks</span>, Accident, injury, damage</span>
+    <div class="my-1">
+      <%= f.input :risks_description, label: "Description" %>
+    </div>
+
+    <span class="badge bg-primary mt-2"><span class="fw-bold">Casual Factors</span>, Hazards, perils, dangers</span>
+    <div class="my-1">
+      <%= f.input :casual_factors_people, label: "People" %>
+    </div>
+    <div class="my-1">
+      <%= f.input :casual_factors_equipment, label: "Equipment" %>
+    </div>
+    <div class="my-1">
+      <%= f.input :casual_factors_environment, label: "Environment" %>
+    </div>
+    
+    <span class="badge bg-primary mt-2"><span class="fw-bold">Risk Management</span>, Emmergency</span>
+    <%= f.input :risk_management_emergency, label: "Emergency" %>
+
+    <span class="badge bg-primary mt-3"><span class="fw-bold">Risk Management</span>, Normal Operations</span>
+    <div class="my-1">
+      <%= f.input :risk_management_normal_operations_people, label: "People" %>
+    </div>
+    <div class="my-1">
+      <%= f.input :risk_management_normal_operations_equipment, label: "Equipment" %>
+    </div>
+    <div class="my-1">
+      <%= f.input :risk_management_normal_operations_environment, label: "Environment" %>
+    </div>
+
+    <div class="my-1">
+      <%= f.input :relevant_industry_standards_applicable, label: "Relevant Industry Standards Applicable" %>
+    </div>
+
+    <div class="my-1">
+      <%= f.input :skills_required_by_staff, label: "Skills required by staff" %>
+    </div>
+
+    <span class="badge bg-primary mt-2">Final Decision on Implementing Activity</span>
+    <div class="my-1">
+      <%= f.input :form_completed_by, label: "Form Completed By" %>
+    </div>
+    <div class="my-1">
+      <label>Choose one:</label>
+      <%= f.input :yes %>
+      <%= f.input :no %>
+    </div>
+    
+    <div class="my-1">
+      <%= f.input :approved_by, label: "Approved by" %>
+    </div>
+
+    <div class="my-1">
+      <%= f.input :position_in, label: "Position" %>
+    </div>
+
+    <div class="my-1">
+      <%= f.input :submision_date, label: "Date" %>
+    </div>
+  </div>
+
+  <div class="form-actions mt-3">
+    <%= button_tag( :class => "btn btn-primary") do %>
+			<i class="fas fa-paper-plane me-1"></i> Submit Form
+		<% end %>
+
+    <%= link_to root_path, :class=>"btn btn-secondary" do %>
+      <i class="far fa-arrow-alt-circle-left me-1"></i> Back
+    <% end %>
+  </div>
+<% end %>

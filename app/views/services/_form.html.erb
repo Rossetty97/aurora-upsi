@@ -17,7 +17,12 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Save", :class=>"btn btn-primary" %>
-    <%= link_to "Back", services_path, :class=>"btn btn-dark" %>
+    <%= button_tag( :class => "btn btn-primary") do %>
+			<i class="far fa-save"></i> Save
+		<% end %>
+    
+    <%= link_to services_path, :class=>"btn btn-dark" do %>
+      <i class="fas fa-arrow-circle-left"></i> Back
+    <% end %>
   </div>
 <% end %>

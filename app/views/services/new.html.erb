@@ -1,10 +1,14 @@
-<%= render "shared/nav_admin" %>
+<% if current_user && current_user.role=="Admin" %>
+  <%= render "shared/nav_admin" %>
+<% else %>
+  <%= render "shared/nav_public" %>
+<% end %>
 
 <div class="container-fluid mt-5">
   <div class="row jutsify-content-center mt-3">
     <div class="col-lg-12">
-      <div class="card">
-        <div class="card-header">Add New Service</div>
+      <div class="card mt-4">
+        <div class="card-header"><i class="fas fa-plus-circle me-1"></i>Add New Service</div>
         <div class="card-body">
           <%= render 'form', service: @service %>
         </div>
