@@ -1,19 +1,44 @@
-<h2>Resend unlock instructions</h2>
+<div class="container-fluid h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-lg-5">
+      <%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+        <%= f.error_notification %>
+        <%= f.full_error :unlock_token %>
+        <div class="text-center">
+          <%= image_tag("aurora.png", :class=>"img-fluid", :size=>"160x160")%>
+          <h1 class="h3 mb-3 fw-normal mt-4">Resend unlock instructions</h1>
+        </div>
 
-<%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.full_error :unlock_token %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
+        <div class="form-input mb-2">
+          <%= f.input :email,
+                placeholder: "name@example.com",
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" } %>
-  </div>
+        </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Resend unlock instructions" %>
-  </div>
-<% end %>
+        <%= f.button :submit, "Resend", :class=>"w-100 btn btn-lg btn-primary" %>
+        <div class="text-center mt-4">
+          <small class="mt-5 mb-3 text-muted">
 
-<%= render "devise/shared/links" %>
+          <%- if controller_name != 'sessions' %>
+            <%= link_to "Log in", new_session_path(resource_name) %><br />
+          <% end %>
+
+            <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+              <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+            <% end %>
+
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+              <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+            <% end %>
+
+            <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+              <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+            <% end %>
+          </small>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
