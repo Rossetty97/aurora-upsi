@@ -25,3 +25,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem 'jquery-rails', '~> 4.4'
 gem 'simple_form', '~> 5.1'
+gem 'devise', '~> 4.8', '>= 4.8.1'
+gem "letter_opener", group: :development
