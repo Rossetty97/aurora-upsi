@@ -6,4 +6,5 @@ class User < ApplicationRecord
   validates :address, presence: true
 
   has_many :services
+  has_many :bookings
 end

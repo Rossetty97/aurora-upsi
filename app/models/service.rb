@@ -7,6 +7,7 @@ class Service < ApplicationRecord
   
   belongs_to :user
   has_many :taps, dependent: :destroy
+  has_many :bookings, dependent: :destroy
 
   after_create :current_usage
 

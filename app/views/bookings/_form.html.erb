@@ -1,0 +1,36 @@
+<%= simple_form_for(@booking) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class="mb-2">
+      <%= f.input :date_time, label: "Date and Time" %>
+    </div>
+    
+    <div class="mb-2">
+      <%= f.input :payment_reference, label: "Payment Reference" %>
+    </div>
+
+    <% if current_user && current_user.role=="Admin"%>
+      <div class="mb-2">
+        <label>Status</label><br>
+        <%= f.select :status,["Approved", "Rejected", "Pending Descision"] %>
+      </div>
+    <% end %>
+
+    <div class="mb-2">
+      <%= f.association :service, label: "Service", prompt: "Please select service" %>
+    </div>
+    <%= f.association :user, as: :hidden %>
+  </div>
+
+  <div class="form-actions mt-3">
+    <%= button_tag( :class => "btn btn-primary") do %>
+			<i class="far fa-save"></i> Save
+		<% end %>
+    
+    <%= link_to root_path, :class=>"btn btn-dark" do %>
+      <i class="fas fa-arrow-circle-left"></i> Back
+    <% end %>
+  </div>
+<% end %>

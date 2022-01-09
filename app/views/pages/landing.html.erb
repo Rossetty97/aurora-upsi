@@ -1,5 +1,7 @@
 <% if current_user && current_user.role=="Admin" %>
   <%= render "shared/nav_admin" %>
+<% elsif current_user && current_user.role=="User" %>
+  <%= render "shared/nav_user" %>
 <% else %>
   <%= render "shared/nav_public" %>
 <% end %>
