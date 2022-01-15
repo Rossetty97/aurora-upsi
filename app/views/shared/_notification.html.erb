@@ -1,37 +1,31 @@
 <% if flash[:notice] %>
-  <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <div id="notice_wrapper">
-            <div class="alert alert-success">
+            <div class="mx-3 alert alert-success">
               <%= flash[:notice] %>
             </div>
         </div>
       </div>
     </div>
-  </div>
 <% elsif flash[:error] %>
-  <div class="container-fluid  mt-3">
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <div id="notice_wrapper">
-            <div class="alert alert-danger">
+            <div class="mx-3 alert alert-danger">
               <%= flash[:error] %>
             </div>
         </div>
       </div>
     </div>
-  </div>
 <% elsif flash[:alert] %>
-  <div class="container-fluid  mt-3">
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <div id="notice_wrapper">
-            <div class="alert alert-warning">
+            <div class="mx-3 alert alert-warning">
               <%= flash[:alert] %>
             </div>
         </div>
       </div>
     </div>
-  </div>
 <% end %>

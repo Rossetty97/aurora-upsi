@@ -6,10 +6,10 @@
   <%= render "shared/nav_public" %>
 <% end %>
 
-<div class="container-fluid mt-5">
-  <div class="row jutsify-content-center mt-3">
+<div class="container-fluid" style="padding-top: 80px">
+  <div class="row jutsify-content-center pt-3">
     <div class="col-lg-12">
-      <div class="card mt-4">
+      <div class="card mt-4 mb-2">
         <div class="card-header"><i class="fas fa-plus-circle me-1"></i>Add New Service</div>
         <div class="card-body">
           <%= render 'form', service: @service %>
