@@ -5,6 +5,6 @@ class User < ApplicationRecord
   validates :contact, presence: true
   validates :address, presence: true
 
-  has_many :services
-  has_many :bookings
+  has_many :services, dependent: :destroy
+  has_many :bookings, dependent: :destroy
 end
