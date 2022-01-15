@@ -13,25 +13,37 @@
       <table class="table">
         <thead>
           <tr>
-            <th>QR Code</th>
-            <th>Service Name</th>
-            <th>Capacity (Minutes)</th>
-            <th>Current usage (Minutes)</th>
-            <th colspan="3">Actions</th>
+            <th>Name</th>
+            <th>Capacity</th>
+            <th>Usage</th>
+            <th colspan="2">Action</th>
           </tr>
         </thead>
 
         <tbody>
           <% @services.each do |service| %>
             <tr>
-              <td><%= image_tag(service.qr_code) if service.qr_code.attached? %></td>
               <td><%= service.name %></td>
               <td><%= service.capacity %></td>
               <td><%= service.current_usage %></td>
               <td>
-                <%= link_to "View", service, :class=>"btn btn-sm btn-primary col-12"%>
-                <%= link_to "Edit", edit_service_path(service), :class=>"btn btn-sm btn-info col-12 my-1" %>
-                <%= link_to "Delete", service, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-sm btn-danger col-12" %>
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                  <%= link_to service, :class=>"btn btn-outline-primary" do %>
+                    View
+                  <% end %>
+
+                  <% if can? :update, @service %>
+                    <%= link_to edit_service_path(service), :class=>"btn btn-outline-primary" do %>
+                      Edit
+                    <% end %>
+                  <% end %>
+
+                  <% if can? :destroy, @service %>
+                    <%= link_to service, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-outline-primary" do %>
+                      Delete
+                    <% end %>
+                  <% end %>
+                </div>
               </td>
             </tr>
           <% end %>
@@ -42,8 +54,10 @@
 </div>
 
 <div class="container-fluid">
-  <%= link_to new_service_path, :class=>"btn btn-primary" do %>
-    <i class="fas fa-arrow-circle-right"></i> Add New Service
+  <% if can? :create, @service %>
+    <%= link_to new_service_path, :class=>"btn btn-primary" do %>
+      <i class="fas fa-arrow-circle-right"></i> Add New Service
+    <% end %>
   <% end %>
 
   <%= link_to root_path, :class=>"btn btn-dark" do %>

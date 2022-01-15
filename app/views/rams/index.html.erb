@@ -18,7 +18,9 @@
               <th>Leaders name</th>
               <th>Form completed by</th>
               <th>Approved by</th>
-              <th colspan="3">Actions</th>
+              <% if current_user && current_user.role=="Admin" %>
+                <th colspan="3">Actions</th>
+              <% end %>
             </tr>
           </thead>
 
@@ -36,18 +38,28 @@
                     -
                   <% end %>
                 <td>
-                  <%= link_to ram, :class=>"btn btn-sm btn-primary" do %>
-                    <i class="far fa-eye"></i> View
-                  <% end %>
-                  <%= link_to edit_ram_path(ram), :class=>"btn btn-sm btn-info" do %>
-                    <i class="fas fa-pencil-alt"></i> Update
-                  <% end %>
-                  <%= link_to ram, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-sm btn-info" do  %>
-                    <i class="far fa-trash-alt"></i> Delete
+                  <% if can? :read, @ram %>
+                    <%= link_to ram, :class=>"btn btn-sm btn-primary" do %>
+                      <i class="far fa-eye"></i> View
+                    <% end %>
                   <% end %>
 
-                  <%= link_to ram_path(ram, format: 'pdf'), :class=>"btn btn-sm btn-primary", :target=>"_blank" do %>
-                    <i class="far fa-file-pdf"></i> Download PDF
+                  <% if can? :update, @ram %>
+                    <%= link_to edit_ram_path(ram), :class=>"btn btn-sm btn-info" do %>
+                      <i class="fas fa-pencil-alt"></i> Update
+                    <% end %>
+                  <% end %>
+
+                  <% if can? :destroy, @ram %>
+                    <%= link_to ram, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-sm btn-info" do  %>
+                      <i class="far fa-trash-alt"></i> Delete
+                    <% end %>
+                  <% end %>
+
+                  <% if current_user && current_user.role=="Admin"%>
+                    <%= link_to ram_path(ram, format: 'pdf'), :class=>"btn btn-sm btn-primary", :target=>"_blank" do %>
+                      <i class="far fa-file-pdf"></i> Download PDF
+                    <% end %>
                   <% end %>
               </tr>
             <% end %>
