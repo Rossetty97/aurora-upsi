@@ -1,18 +1,20 @@
 default: &default
   adapter: postgresql
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-  username: <%= ENV["DB_USERNAME"]%>
-  password: <%= ENV["DB_PASSWORD"]%>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
 
 development:
   <<: *default
-  database: db/aurora-development.postgresql
+  database: aurora_development
 
 test:
   <<: *default
-  database: db/aurora-test.postgresql
+  database: aurora_test
 
 production:
   <<: *default
-  database: db/aurora-production.postgresql
+  database: aurora_production
+  username: aurora
+  password: <%= ENV['AURORA_DATABASE_PASSWORD'] %>
