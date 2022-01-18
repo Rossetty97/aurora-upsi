@@ -9,9 +9,14 @@
 <% if current_user && current_user.role=="Admin" %>
 <div class="container-fluid" style="margin-top: 80px">
   <div class="row jutsify-content-center pt-3">
-    <p class="h6 mt-4">List of Booking Requests</h1>
+    <div class="col-lg-12 mt-5">
+      <span class="h6 bg-info text-light py-2 rounded-pill px-4">
+        <i class="fas fa-cog me-1"></i>
+        List of Booking Requests
+      </span>
+    </div>
       <div class="col-lg-12">
-        <table class="table">
+        <table class="table mt-3">
           <thead>
             <tr>
               <th>Application Date</th>
@@ -73,9 +78,14 @@
 <% else %>
 <div class="container-fluid" style="margin-top: 80px">
   <div class="row jutsify-content-center pt-3">
-    <p class="h6 mt-4">My Booking Requests</h1>
+    <div class="col-lg-12 mt-5">
+      <span class="h6 bg-info text-light py-2 rounded-pill px-4">
+        <i class="fas fa-cog me-1"></i>
+        My Booking Requests
+      </span>
+    </div>
       <div class="col-lg-12">
-        <table class="table">
+        <table class="table mt-3">
           <thead>
             <tr>
               <th>Application Date</th>
