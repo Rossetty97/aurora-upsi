@@ -10,14 +10,18 @@
         </div>
         <div class="card-body">
           <small class="text-muted">
-            <i class="far fa-calendar-alt"></i> Service created at <%= @service.created_at.strftime("%B, %d, %Y")%><br>
-            <i class="fas fa-filter"></i> Service Capacity: <%= @service.capacity %> Minutes<br>
-            <i class="fas fa-chart-pie"></i> Current Usage: <span class="badge bg-success"><%= @service.current_usage %></span> Minutes<br>
+            <i class="far fa-calendar-alt"></i> Service created at <%= @service.created_at.strftime("%B, %d, %Y")%>
+            
+            <% if current_user && current_user.role=="Admin" %>
+              <br>
+              <i class="fas fa-filter"></i> Service Capacity: <%= @service.capacity %> Minutes<br>
+              <i class="fas fa-chart-pie"></i> Current Usage: <span class="badge bg-success"><%= @service.current_usage %></span> Minutes<br>
 
-            <% if @service.qr_code.attached? %>
-              <div class="text-center">
-                <%= image_tag(@service.qr_code, :size=>"200x200") %>
-              </div>
+              <% if @service.qr_code.attached? %>
+                <div class="text-center">
+                  <%= image_tag(@service.qr_code, :size=>"200x200") %>
+                </div>
+              <% end %>
             <% end %>
             
             <div>

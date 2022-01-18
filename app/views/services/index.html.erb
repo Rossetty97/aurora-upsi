@@ -7,10 +7,21 @@
 <% end %>
 
 <div class="container-fluid" style="padding-top: 80px">
+  <% if current_user && current_user.role=="Admin" %>
+    <div class="row justify-content-center mt-5">
+      <div class="col-lg-5 text-center">
+        <div class="alert alert-success">
+          <i class="far fa-hand-paper me-1"></i>Hello! <strong><%= current_user.name %></strong>
+        </div>
+      </div>
+    </div>
+  <% end %>
   <div class="row justify-content-center">
-    <div class="col-lg-12">
-      <p class="h6 mt-4">List of Services</h1>
-      <table class="table">
+    <div class="col-lg-12 mt-5">
+      <span class="h6 bg-info text-light py-2 rounded-pill px-4">
+        <i class="fas fa-cog me-1"></i>
+      List of Services</span>
+      <table class="table mt-3">
         <thead>
           <tr>
             <th>Name</th>
@@ -23,7 +34,7 @@
         <tbody>
           <% @services.each do |service| %>
             <tr>
-              <td><%= service.name %></td>
+              <td class="link-primary"><%= link_to service.name, service %></td>
               <td><%= service.capacity %></td>
               <td><%= service.current_usage %></td>
               <td>
@@ -39,7 +50,7 @@
                   <% end %>
 
                   <% if can? :destroy, @service %>
-                    <%= link_to service, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-outline-primary" do %>
+                    <%= link_to '#exampleModal', 'data-bs-toggle' => 'modal', :class=>"btn btn-outline-primary" do %>
                       Delete
                     <% end %>
                   <% end %>
@@ -63,4 +74,33 @@
   <%= link_to root_path, :class=>"btn btn-dark" do %>
     <i class="fas fa-arrow-circle-left"></i> Back
   <% end %>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <i class="fas fa-exclamation-circle me-1"></i>
+          Attention
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure to delete this Service?<br>
+        Action can't be undone.
+      </div>
+      <div class="modal-footer">
+        <%= link_to "#", 'data-bs-dismiss'=>'modal', :class=>"btn btn-secondary" do %>
+          <i class="far fa-times-circle me-1"></i>Close
+        <% end %>
+        <% @services.each do |service| %>
+          <%= link_to service, method: :delete, :class=>"btn btn-danger" do %>
+            <i class="far fa-trash-alt me-1"></i>Delete
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

@@ -5,8 +5,19 @@
 				<div class="card-header"><i class="far fa-clock me-1"></i>Check In/Out</div>
 				<div class="card-body">
 					<%= simple_form_for([@service, @service.taps.build]) do |f| %>
-						<%= f.input :in_time, label: "In Time", hint: "Select in time only if you are just checking in." %><br>
-						<%= f.input :out_time, label: "Out Time", hint: "Select out time only if you have already checked in." %><br>
+						<div class="form-group">
+							<label>
+								<i class="fas fa-arrow-right me-1"></i> In Time
+							</label>
+							<%= f.input :in_time, label: false, hint: "Select in time only if you are just checking in." %>
+						</div>
+						<div class="form-group">
+							<label>
+								<i class="fas fa-arrow-left me-1"></i> Out Time
+							</label>
+							<%= f.input :out_time, label: false, hint: "Select out time only if you have already checked in." %>
+						</div>
+					
 						<%= button_tag( :class => "btn btn-primary col-12") do %>
 							<i class="fas fa-paper-plane"></i>
 						<% end %>
