@@ -15,7 +15,7 @@
             <% if current_user && current_user.role=="Admin" %>
               <br>
               <i class="fas fa-filter"></i> Service Capacity: <%= @service.capacity %> Minutes<br>
-              <i class="fas fa-chart-pie"></i> Current Usage: <span class="badge bg-success"><%= @service.current_usage %></span> Minutes<br>
+              
 
               <% if @service.qr_code.attached? %>
                 <div class="text-center">
@@ -23,6 +23,7 @@
                 </div>
               <% end %>
             <% end %>
+            <i class="fas fa-chart-pie"></i> Current Usage: <span class="badge bg-success"><%= @service.current_usage %></span> Minutes<br>
             
             <div>
               <p class="lead"><%= sanitize @service.description %></p>
