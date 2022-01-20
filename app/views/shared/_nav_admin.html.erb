@@ -13,17 +13,21 @@
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <%= link_to services_path, :class=>"ms-2 btn btn-primary" do %>
-            <i class="fas fa-cog me-1"></i> Services
+            <i class="fas fa-cog me-1"></i> Services <div class="badge bg-warning">
+            <%= Service.all.count %></div>
           <% end %>
         </li>
         <li class="nav-item">
           <%= link_to bookings_path, :class=>"ms-2 btn btn-primary" do %>
-            <i class="far fa-comment-dots me-1"></i> Booking Requests
+            <i class="far fa-comment-dots me-1"></i> Booking Requests <div class="badge bg-warning">
+            <%= Booking.all.count %></div>
           <% end %>
         </li>
         <li class="nav-item">
           <%= link_to rams_path, :class=>"ms-2 btn btn-primary" do %>
-            <i class="far fa-file-alt me-1"></i> RAM Form
+            <i class="far fa-file-alt me-1"></i> RAM Form <div class="badge bg-warning">
+            <%= Ram.all.count %>
+            </div>
           <% end %>
         </li>
         <li class="nav-item">
