@@ -8,8 +8,6 @@ class ServicesController < ApplicationController
   end
 
   def show
-    #@tap = Tap.new
-    #@taps = @service.taps.order('created_at DESC')
   end
 
   def new
