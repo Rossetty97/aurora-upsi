@@ -1,46 +1,26 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow">
-  <div class="container-fluid">
-    <%= link_to root_path, :class=>"navbar-brand" do %>
-      <div class="navbar-brand">
-        <%= image_tag("aurora.png", :size=>"50x50") %>
-        <span class="ms-2 brand">Aurora</span>
-      </div>
-    <% end %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <%= link_to services_path, :class=>"ms-2 btn btn-primary" do %>
-            <i class="fas fa-cog me-1"></i> Services <div class="badge bg-warning">
-            <%= Service.all.count %></div>
-          <% end %>
-        </li>
-        <li class="nav-item">
-          <%= link_to bookings_path, :class=>"ms-2 btn btn-primary" do %>
-            <i class="far fa-comment-dots me-1"></i> Booking Requests <div class="badge bg-warning">
-            <%= Booking.all.count %></div>
-          <% end %>
-        </li>
-        <li class="nav-item">
-          <%= link_to rams_path, :class=>"ms-2 btn btn-primary" do %>
-            <i class="far fa-file-alt me-1"></i> RAM Form <div class="badge bg-warning">
-            <%= Ram.all.count %>
-            </div>
-          <% end %>
-        </li>
-        <li class="nav-item">
-          <%= link_to edit_user_registration_path, :class=>"ms-2 btn btn-outline-primary" do %>
-            <i class="fas fa-sign-in-alt me-1"></i> Update Account
-          <% end %>
-        </li>
-        <li class="nav-item">
-          <%= link_to destroy_user_session_path, method: :delete, :class=>"ms-2 btn btn-outline-primary" do %>
-            <i class="fas fa-sign-out-alt me-1"></i> Log Out
-          <% end %>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<header>
+  <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+  <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+    <%= image_tag("aurora-logo.png", :size=>"40x32")%>
+    <span class="fs-4">Aurora</span>
+  </a>
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+      <%= link_to "Home", root_path, :class=>"me-3 py-2 text-dark text-decoration-none"%>
+      <%= link_to services_path, :class=>"me-3 py-2 text-dark text-decoration-none" do %>
+        Services (<%= Service.all.count %>)
+      <% end%>
+      <%= link_to bookings_path, :class=>"me-3 py-2 text-dark text-decoration-none" do %>
+        Bookings (<%= Booking.all.count %>)
+      <% end %>
+      <%= link_to rams_path, :class=>"me-3 py-2 text-dark text-decoration-none" do %>
+        RAMs Form (<%= Ram.all.count %>)
+      <% end %>
+      <%= link_to edit_user_registration_path, :class=>"btn btn-outline-primary me-1" do %>
+        Update Account
+      <% end %>
+      <%= link_to destroy_user_session_path, method: :delete, :class=>"btn btn-primary" do %>
+        Sign Out
+      <% end %>
+  </nav>
+</div>
+</header>

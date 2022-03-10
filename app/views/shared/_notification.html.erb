@@ -1,31 +1,28 @@
 <% if flash[:notice] %>
-    <div class="row justify-content-center">
-      <div class="col-lg-6">
-        <div id="notice_wrapper">
-            <div class="mx-3 alert alert-success">
-              <%= flash[:notice] %>
-            </div>
-        </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= flash[:notice] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     </div>
+  </div>
 <% elsif flash[:error] %>
-    <div class="row justify-content-center">
-      <div class="col-lg-6">
-        <div id="notice_wrapper">
-            <div class="mx-3 alert alert-danger">
-              <%= flash[:error] %>
-            </div>
-        </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= flash[:error] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     </div>
+  </div>
 <% elsif flash[:alert] %>
-    <div class="row justify-content-center">
-      <div class="col-lg-6">
-        <div id="notice_wrapper">
-            <div class="mx-3 alert alert-warning">
-              <%= flash[:alert] %>
-            </div>
-        </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= flash[:alert] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     </div>
+  </div>
 <% end %>
