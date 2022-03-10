@@ -1,61 +1,65 @@
 <div class="container-fluid h-100">
   <div class="row h-100 justify-content-center align-items-center">
-    <div class="col-lg-5">
+    <div class="col-lg-6 col-sm-12">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= f.error_notification %>
-        <div class="text-center">
-          <%= image_tag("aurora.png", :class=>"img-fluid", :size=>"160x160")%>
-          <h1 class="h3 mb-3 fw-normal mt-4">Update Your Account</h1>
-        </div>
+        <div class="card p-3">
+          <div class="card-body">
+            <%= f.error_notification %>
+              <div class="text-center">
+                <%= image_tag("aurora-logo.png", :class=>"img-fluid")%>
+                <h1 class="h3 mb-3 fw-normal mt-4">Update Your Account</h1>
+              </div>
 
-        <div class="form-input">
-          <%= f.input :name,
-                placeholder: "Your name",
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "name" } %>
-        </div>
+              <div class="form-input">
+                <%= f.input :name,
+                      placeholder: "Your name",
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "name" } %>
+              </div>
 
-        <div class="form-input my-2">
-          <%= f.input :contact,
-                placeholder: "Your contact",
-                required: false,
-                input_html: { autocomplete: "contact" } %>
-        </div>
+              <div class="form-input my-2">
+                <%= f.input :contact,
+                      placeholder: "Your contact",
+                      required: false,
+                      input_html: { autocomplete: "contact" } %>
+              </div>
 
-        <div class="form-input my-2">
-          <%= f.input :address,
-                placeholder: "Your address",
-                required: false,
-                input_html: { autocomplete: "address" } %>
-        </div>
+              <div class="form-input my-2">
+                <%= f.input :address,
+                      placeholder: "Your address",
+                      required: false,
+                      input_html: { autocomplete: "address" } %>
+              </div>
 
-        <div class="form-input my-2">
-          <%= f.input :password,
-                label: "New password",
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-        </div>
-        <div class="form-input my-2">
-          <%= f.input :password_confirmation,
-                label: "Retype-password",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-        </div>
-        <div class="form-input my-2">
-          <%= f.input :current_password,
-                label: "Current password",
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-        </div>
+              <div class="form-input my-2">
+                <%= f.input :password,
+                      label: "New password",
+                      hint: "leave it blank if you don't want to change it",
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+              </div>
+              <div class="form-input my-2">
+                <%= f.input :password_confirmation,
+                      label: "Retype-password",
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+              </div>
+              <div class="form-input my-2">
+                <%= f.input :current_password,
+                      label: "Current password",
+                      hint: "we need your current password to confirm your changes",
+                      required: true,
+                      input_html: { autocomplete: "current-password" } %>
+              </div>
 
-        <%= f.button :submit, "Update", :class=>"w-100 btn btn-lg btn-primary" %>
-        <div class="text-center mt-4">
-          <small class="mt-5 mb-3 text-muted">
-            <%= link_to "Back", root_path %>
-          </small>
+              <%= f.button :submit, "Update", :class=>"w-100 btn btn-lg btn-primary" %>
+              <div class="text-center mt-4">
+                <small class="mt-5 mb-3 text-muted">
+                  <%= link_to "Back", root_path %>
+                </small>
+              </div>
+          </div>
         </div>
       <% end %>
     </div>
