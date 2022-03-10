@@ -47,7 +47,7 @@ class ServicesController < ApplicationController
     @service.destroy
 
     respond_to do |format|
-      format.html { redirect_to services_url, notice: "Service was successfully destroyed." }
+      format.html { redirect_to services_url, notice: "Service was successfully deleted." }
       format.json { head :no_content }
     end
   end
@@ -58,6 +58,6 @@ class ServicesController < ApplicationController
     end
 
     def service_params
-      params.require(:service).permit(:name, :description, :capacity, :current_usage, :user_id)
+      params.require(:service).permit(:name, :description, :capacity, :current_usage, :usage_reminder, :price, :user_id)
     end
 end

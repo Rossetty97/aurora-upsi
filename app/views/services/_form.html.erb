@@ -11,7 +11,13 @@
       <%= f.input :description, as: :trix_editor, placeholder: "Description" %>
     </div>
     <div class="mb-2">
+      <%= f.input :price, label: "Price (RM)", placeholder: "Service price(RM)" %>
+    </div>
+    <div class="mb-2">
       <%= f.input :capacity, label: "Capacity (Minutes)", placeholder: "Service capacity(Minutes)" %>
+    </div>
+    <div class="mb-2">
+      <%= f.input :usage_reminder, label: "Remind When Usage (Minutes)", placeholder: "Remind When Usage (Minutes)" %>
     </div>
     <%= f.association :user, as: :hidden  %>
   </div>

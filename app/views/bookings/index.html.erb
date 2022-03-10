@@ -1,7 +1,7 @@
 <% if current_user && current_user.role=="Admin" %>
 <div class="container-fluid">
-  <div class="row jutsify-content-center pt-3">
-    <div class="col-lg-12 mt-5">
+  <div class="row jutsify-content-center">
+    <div class="col-lg-12 mt-2">
       <span class="h6 bg-info text-light py-2 rounded-pill px-4">
         <i class="fas fa-cog me-1"></i>
         List of Booking Requests
@@ -12,8 +12,8 @@
           <thead>
             <tr>
               <th>Application Date</th>
-              <th>Booking Date & Time</th>
-              <th>Payment Reference</th>
+              <th>Date & Time</th>
+              <th>Reference</th>
               <th>User Name</th>
               <th>User Email</th>
               <th>User Contact</th>
@@ -35,7 +35,7 @@
                 <td><%= booking.service.name %></td>
                 <td>
                   <% if booking.status=="Pending Descision" %>
-                    <span class="badge bg-warning">Pending Descision</span>
+                    <span class="badge bg-warning">Pending</span>
                   <% elsif booking.status=="Approved"%>
                     <span class="badge bg-success">Approved</span>
                   <% elsif booking.status=="Rejected"%>
@@ -44,10 +44,10 @@
                 </td>
                 
                 <td>
-                  <%= link_to "View", booking, :class=>"btn btn-primary btn-sm col-12" %>
+                  <%= link_to "View", booking %>
 
-                  <%= link_to "Edit", edit_booking_path(booking), :class=>"btn btn-info btn-sm col-12 my-1" %>
-                  <%= link_to "Remove", booking, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger btn-sm col-12" %>
+                  <%= link_to "Edit", edit_booking_path(booking)%>
+                  <%= link_to "Remove", booking, method: :delete, data: { confirm: 'Are you sure?' } %>
                 </td>
               </tr>
             <% end %>
@@ -70,10 +70,10 @@
 <% else %>
 <div class="container-fluid">
   <div class="row jutsify-content-center pt-3">
-    <div class="col-lg-12 mt-5">
+    <div class="col-lg-12">
       <span class="h6 bg-info text-light py-2 rounded-pill px-4">
         <i class="fas fa-cog me-1"></i>
-        My Booking Requests
+        My Booking Requests (<%= current_user.bookings.count%>)
       </span>
     </div>
       <div class="col-lg-12">

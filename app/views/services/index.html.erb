@@ -1,6 +1,6 @@
-<div class="container-fluid" style="padding-top: 80px">
+<div class="container-fluid">
   <div class="row justify-content-center">
-    <div class="col-lg-12 mt-5">
+    <div class="col-lg-12 mt-2">
       <span class="h6 bg-info text-light py-2 rounded-pill px-4">
         <i class="fas fa-cog me-1"></i>
       List of Services</span>
@@ -10,16 +10,19 @@
             <th>Name</th>
             <th>Capacity</th>
             <th>Usage</th>
+            <th>Price</th>
             <th colspan="2">Action</th>
           </tr>
         </thead>
 
         <tbody>
           <% @services.each do |service| %>
+            <% if service.current_usage < service.usage_reminder %>
             <tr>
-              <td class="link-primary"><%= link_to service.name, service %></td>
+              <td class="link-primary"><%= link_to service.name, service%></td>
               <td><%= service.capacity %></td>
               <td><%= service.current_usage %></td>
+              <td><%= service.price %> RM</td>
               <td>
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
                   <%= link_to service, :class=>"btn btn-outline-primary" do %>
@@ -40,6 +43,33 @@
                 </div>
               </td>
             </tr>
+          <% elsif service.current_usage >= service.usage_reminder %>
+            <tr>
+              <td class="link-danger"><%= link_to service.name, service, :class=>"link-danger"%></td>
+              <td class="text-danger"><%= service.capacity %></td>
+              <td class="text-danger"><%= service.current_usage %></td>
+              <td class="text-danger"><%= service.price %> RM</td>
+              <td>
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                  <%= link_to service, :class=>"btn btn-outline-primary" do %>
+                    View
+                  <% end %>
+
+                  <% if can? :update, @service %>
+                    <%= link_to edit_service_path(service), :class=>"btn btn-outline-primary" do %>
+                      Edit
+                    <% end %>
+                  <% end %>
+
+                  <% if can? :destroy, @service %>
+                    <%= link_to service_path(service), method: :delete, data: {confirm: 'Are you sure?'}, :class=>"btn btn-outline-primary" do %>
+                      Delete
+                    <% end %>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+            <% end %>
           <% end %>
         </tbody>
       </table>
