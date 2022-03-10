@@ -1,32 +1,32 @@
-<div class="container-fluid" style="padding-top: 100px">
+<div class="container-fluid">
   <div class="row justify-content-center">
     <div class="col-lg-12 text-center">
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://images.pexels.com/photos/3661244/pexels-photo-3661244.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://images.pexels.com/photos/479817/pexels-photo-479817.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://images.pexels.com/photos/3208282/pexels-photo-3208282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://images.pexels.com/photos/3661244/pexels-photo-3661244.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="d-block w-100" alt="..." style="border-radius: 10px">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.pexels.com/photos/479817/pexels-photo-479817.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="d-block w-100" alt="..." style="border-radius: 10px">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.pexels.com/photos/3208282/pexels-photo-3208282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="d-block w-100" alt="..." style="border-radius: 10px">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -34,14 +34,14 @@
 <div class="container-fluid py-3 mt-4">
   <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
     <h1 class="display-4 fw-normal">Packages</h1>
-      <p class="fs-5 text-muted">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
+      <p class="fs-5 text-muted">We provide booking services as below. Click <%= link_to "Here", new_booking_path %> to create a booking for your desired service.</p>
     </div>
   </header>
 
     <main>
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-      <div class="col">
-        <% @services.each do |service| %>
+    <div class="row justify-content-center">
+      <% @services.each do |service| %>
+      <div class="col-lg-4">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal"><%= service.name %></h4>
@@ -51,9 +51,45 @@
               <%= sanitize service.description%>
             </ul>
           </div>
+          <div class="card-footer text-center">MYR Price</div>
         </div>
-        <% end %>
       </div>
+      <% end %>
     </div>
   </main>
+  <footer class="mt-4">
+    <div class="container-fluid p-0">
+      <div class="row text-left">
+        <div class="col-md-6 col-sm-5">
+          <h4 class="text-light">About us</h4>
+          <p class="text-muted">Co-curriculum center. Let us be social at</p>
+          <div class="centerdiv">
+            <a href="https://www.facebook.com/pkqupsi" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <span class="text-light">Pusat Kokurikulum UPSI</span>
+          </div>
+          <div class="centerdiv">          
+            <a href="http://pkq.upsi.edu.my/" target="_blank">
+            <i class="fas fa-globe"></i>
+            </a>
+            <span class="text-light">Pusat Kokurikulum Official Webpage</span>
+          </div>
+
+
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+          <h4 class="text-light">Address</h4>
+          <p class="text-muted">Co-curriculum center, Universiti Pendidikan Sultan Idris, 35900 Tanjung Malim, Perak.</p>
+        </div>
+
+      </div>
+    </div>
+      <div class="copyright">
+          <p class="pt-4 text-muted">Copyright ©2022 All rights reserved | This template is made with by
+            <span> Team Developer </span>
+          </p>
+      </div>
+  </footer>
 </div>

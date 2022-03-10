@@ -32,3 +32,62 @@ abbr{
 .mt-18vh{
   margin-top: 18vh !important;
 }
+
+/*  Footer  */
+
+footer {
+  background: rgba(0, 0, 0, 0.815);
+  overflow-x: hidden;
+  padding: 8vmin 18vmin;
+}
+
+footer p > span {
+  color: #ff512f;
+}
+
+footer .column i {
+  color: #dd2476;
+}
+
+footer .column i + i {
+  padding: 0 0.2em;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.815);
+  z-index: 9999;
+  transition: all 1.5s ease;
+}
+
+.centerdiv {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.centerdiv a {
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  border-radius: 50px;
+  text-align: center;
+  margin: 10px;
+  line-height: 50px;
+}
+
+.centerdiv .a i {
+  transition: all 0.3s linear;
+}
+
+.centerdiv .a:hover i {
+  transform: scale(1.4);
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
