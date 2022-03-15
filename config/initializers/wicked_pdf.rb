@@ -24,5 +24,6 @@ WickedPdf.config = {
   # 'xvfb-run' command, in order to simulate an X server.
   #
   # use_xvfb: true,
-  exe_path: 'C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe'
+  #exe_path: 'C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe'
+  exe_path: '/usr/local/bin/wkhtmltopdf'
 }
