@@ -28,7 +28,7 @@ class Service < ApplicationRecord
       action: 'show',
       id: self.id,
       only_path: false,
-      host: 'https://aurora-upsi.herokuapp.com',
+      host: 'https://upsi-aurora.herokuapp.com/',
       protocol: 'http',
       source: 'from_qr'
       )
