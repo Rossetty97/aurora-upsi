@@ -18,6 +18,13 @@
       </div>
     <% end %>
 
+    <% if current_user && current_user.role=="Admin"%>
+      <div class="mb-2">
+        <label>Reason Of Rejection</label><br>
+        <%= f.input :reason_of_rejections, label: false %>
+      </div>
+    <% end %>
+
     <div class="mb-2">
       <%= f.association :service, label: "Service", prompt: "Please select service" %>
     </div>

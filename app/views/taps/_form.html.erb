@@ -9,13 +9,16 @@
 							<label>
 								<i class="fas fa-arrow-right me-1"></i> In Time
 							</label>
-							<%= f.input :in_time, label: false, hint: "Select in time only if you are just checking in." %>
+							<%= f.input :in_time,
+								label: false, hint: "Select in time only if you are just checking in.",
+								start_hour: Time.now.hour
+								%>
 						</div>
 						<div class="form-group">
 							<label>
 								<i class="fas fa-arrow-left me-1"></i> Out Time
 							</label>
-							<%= f.input :out_time, label: false, hint: "Select out time only if you have already checked in." %>
+							<%= f.input :out_time, label: false, hint: "Select out time only if you have already checked in.", start_hour: Time.now.hour %>
 						</div>
 					
 						<%= button_tag( :class => "btn btn-primary col-12") do %>

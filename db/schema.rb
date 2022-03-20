@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_10_045732) do
+ActiveRecord::Schema.define(version: 2022_03_18_044535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2022_03_10_045732) do
     t.bigint "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "reason_of_rejections"
     t.index ["service_id"], name: "index_bookings_on_service_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -84,7 +85,7 @@ ActiveRecord::Schema.define(version: 2022_03_10_045732) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "usage_reminder", null: false
-    t.decimal "price", null: false
+    t.decimal "price"
     t.index ["user_id"], name: "index_services_on_user_id"
   end
 

@@ -10,7 +10,6 @@
             <th>Name</th>
             <th>Capacity</th>
             <th>Usage</th>
-            <th>Price</th>
             <th colspan="2">Action</th>
           </tr>
         </thead>
@@ -22,7 +21,6 @@
               <td class="link-primary"><%= link_to service.name, service%></td>
               <td><%= service.capacity %></td>
               <td><%= service.current_usage %></td>
-              <td><%= service.price %> RM</td>
               <td>
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
                   <%= link_to service, :class=>"btn btn-outline-primary" do %>
@@ -48,7 +46,6 @@
               <td class="link-danger"><%= link_to service.name, service, :class=>"link-danger"%></td>
               <td class="text-danger"><%= service.capacity %></td>
               <td class="text-danger"><%= service.current_usage %></td>
-              <td class="text-danger"><%= service.price %> RM</td>
               <td>
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
                   <%= link_to service, :class=>"btn btn-outline-primary" do %>

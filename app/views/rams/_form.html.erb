@@ -11,13 +11,13 @@
       <%= f.input :time_and_date, label: "Date and Time" %>
     </div>
     <div class="my-1">
-      <%= f.input :location, label: "Location" %>
+      <%= f.input :location, collection: ["UPSI Adventure Park (UAP)", "Recreation Lake", "Others"], prompt: "Select Location"%>
     </div>
     <div class="my-1">
       <%= f.input :leaders_name, label: "Leaders Name" %>
     </div>
     <div class="my-1">
-      <%= f.input :activity, label: "Activity" %>
+      <%= f.input :activity, label: "Activity", collection: ["Flying Fox", "Abseiling", "Wall Climbing", "High Element", "Ice Breaker", "Obstacles/Nature Walk", "Night Walk", "Campfire & Nature Walk", "Orienteering", "Team Building Activities LDK"], prompt: "Select Activity" %>
     </div>
     <div class="my-1">
       <%= f.input :num_of_leaders %>
@@ -32,8 +32,21 @@
       <%= f.input :casual_factors_people, label: "People" %>
     </div>
     <div class="my-1">
-      <%= f.input :casual_factors_equipment, label: "Equipment" %>
-    </div>
+      <%= f.input :casual_factors_equipment, collection: [
+        "Impact Trolly",
+        "Carabiner Locking",
+        "Zip Stop",
+        "Single Pully",
+        "Tandem",
+        "Figure Of Eight",
+        "Carabiner Lock",
+        "Carabiner Oval Triact Lock",
+        "Grigri",
+        "ATC",
+        "Helmet",
+        "Seat Harness"
+      ], prompt: "Selecy Equipment" %>
+   </div>
     <div class="my-1">
       <%= f.input :casual_factors_environment, label: "Environment" %>
     </div>
@@ -46,8 +59,21 @@
       <%= f.input :risk_management_normal_operations_people, label: "People" %>
     </div>
     <div class="my-1">
-      <%= f.input :risk_management_normal_operations_equipment, label: "Equipment" %>
-    </div>
+      <%= f.input :risk_management_normal_operations_equipment, collection: [
+        "Impact Trolly",
+        "Carabiner Locking",
+        "Zip Stop",
+        "Single Pully",
+        "Tandem",
+        "Figure Of Eight",
+        "Carabiner Lock",
+        "Carabiner Oval Triact Lock",
+        "Grigri",
+        "ATC",
+        "Helmet",
+        "Seat Harness"
+      ], prompt: "Selecy Equipment" %>
+   </div>
     <div class="my-1">
       <%= f.input :risk_management_normal_operations_environment, label: "Environment" %>
     </div>
